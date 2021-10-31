@@ -403,28 +403,28 @@
                       </h5>
                     </div>
                     <div>
-                      <form id="submit-form">
+                      <form id="submitform">
                         <div class="row">
                           <div class="col-md-12 mb-3">
                             <div class="form-group">
-                              <input type="text" name="yourname" class="form-control" oninput="this.value=this.value.replace(/[^A-Za-z-/]|^ /g, '')" maxlength="20" onkeyup="Per()" id="name" placeholder="Your Name" required>
+                              <input type="text" name="name" class="form-control" oninput="this.value=this.value.replace(/[^A-Za-z-/]|^ /g, '')" maxlength="20" onkeyup="Per()" id="name" placeholder="Your Name">
                               <p class="er" id="peer"></p>
                             </div>
                           </div>
                           <div class="col-md-12 mb-3">
                             <div class="form-group">
-                              <input type="email" class="form-control" name="youremail"  onkeyup="mal()"  id="email" placeholder="Your Email" required>
+                              <input type="email" class="form-control" name="email"  onkeyup="mal()"  id="email" placeholder="Your Email">
                               <p class="er" id="maal"></p>
                             </div>
                           </div>
                           <div class="col-md-12 mb-3">
                             <div class="form-group">
-                              <input type="text" class="form-control" name="subjects" id="subject" placeholder="Subject" required>
+                              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
                             </div>
                           </div>
                           <div class="col-md-12">
                             <div class="form-group">
-                              <textarea class="form-control" name="messages" rows="5" placeholder="Message" required></textarea>
+                              <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
                             </div>
                           </div>
                           <div class="col-md-12 text-center my-3">
@@ -507,25 +507,32 @@
   <script src="assets/js/main.js"></script>
   <script src="assets/js/validation.js"></script>
   <script>
-    $("#submit-form").submit((e)=>{
+    $("#submitform").submit((e)=>{
         e.preventDefault()
+        if($('#submitform').valid()){
         $.ajax({
             url:"https://script.google.com/macros/s/AKfycbxHakzUTdP19sPtpfX9cWrXWiKwL7zqg7Ws5CZ1d0cXriZRm4rnJaegvHzlKJuZmuPBJw/exec",
-            data:$("#submit-form").serialize(),
+            data:$("#submitform").serialize(),
             method:"post",
             success:function (response){
                 alert("Form submitted successfully")
                 window.location.reload()
-                $("#submit-form")[0].reset();
+                $("#submitform")[0].reset();
                 //window.location.href="https://google.com"
             },
             error:function (err){
                 alert("Something Error")
 
             }
+            
         })
+      }
     })
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+
+<script src="validation.js"></script>
 
 </body>
 

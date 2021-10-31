@@ -233,7 +233,7 @@ function Per(){
   var username = $('#name').val()
   var pattern=/^[a-zA-Z-()]+(\s+[-a-zA-Z- ()]+)*$/
   if(username==""){
-   $('#peer').html("Enter The Name");
+   $('#peer').html("Please enter the your name.");
       return false
   }else if(username.match(pattern)){
    $('#peer').html("");
@@ -246,7 +246,7 @@ function mal(){
   var email = $('#email').val()
   var pattern=/^[^]+@[^]+\.[a-z]{2,3}$/
   if(email==""){
-   $('#maal').html("Enter Valid Email");
+   $('#maal').html("Enter your valid Email.");
      return false
   }else if(email.match(pattern)){
    $('#maal').html("");
